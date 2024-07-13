@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+if [[ "nginx" = "$1" ]]; then
+    if [[ -z "${PHP_FPM}" ]]; then
+        echo "Not found env PHP_UNIT"
+        exit 128
+    fi
+
+    envsubst '\$PHP_FPM' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf;
+
+fi
+
+exec "$@"

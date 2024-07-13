@@ -1,0 +1,30 @@
+.idea/
+
+/.idea
+
+!.gitkeep
+
+
+/public/bundles/
+/public/images/
+!/public/bundles/app
+/var/
+/vendor/
+/.env.test
+/.env.local
+/.env.*.local
+/codeception.yml
+/tests/_output/
+
+###> phpunit/phpunit ###
+/phpunit.xml
+###< phpunit/phpunit ###
+/.php_cs.cache
+
+/.php-cs-fixer.cache
+
+/encryption.txt
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

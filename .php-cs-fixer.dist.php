@@ -1,0 +1,230 @@
+<?php
+/*
+ * https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v3.2.1/doc/ruleSets/index.rst
+ * https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v3.2.1/doc/rules/index.rst
+ */
+return (new PhpCsFixer\Config())
+    ->setRiskyAllowed(true)
+    ->setCacheFile('.php-cs-fixer.cache')
+    ->setRules([
+        '@DoctrineAnnotation' => true,
+        '@PHP71Migration:risky' => true,
+        '@PHP73Migration' => true,
+        '@PHPUnit84Migration:risky' => true,
+        '@PSR12' => true,
+        '@PSR12:risky' => true,
+        '@Symfony' => true,
+        '@Symfony:risky' => true,
+        'no_alias_functions' => [
+            'sets' => [
+                '@all',
+            ],
+        ],
+        'class_attributes_separation' => [
+            'elements' => [
+                'const' => 'one',
+                'method' => 'one',
+                'property' => 'one',
+                'trait_import' => 'only_if_meta',
+            ],
+        ],
+        'class_definition' => [
+            'single_item_single_line' => true,
+            'single_line' => true,
+        ],
+        'no_null_property_initialization' => true,
+        'ordered_class_elements' => [
+            'order' => [
+                'use_trait',
+                'public',
+                'protected',
+                'private',
+                'constant',
+                'constant_public',
+                'constant_protected',
+                'constant_private',
+                'property',
+                'property_public',
+                'property_protected',
+                'property_private',
+                'property_static',
+                'property_public_static',
+                'property_protected_static',
+                'property_private_static',
+                'method',
+                'method_abstract',
+                'method_static',
+                'construct',
+                'destruct',
+                'magic',
+                'method_public_abstract',
+                'method_public',
+                'method_protected_abstract',
+                'method_protected',
+                'method_private',
+                'method_public_abstract_static',
+                'method_public_static',
+                'method_protected_abstract_static',
+                'method_protected_static',
+                'method_private_static',
+                'phpunit',
+            ],
+        ],
+        'self_static_accessor' => true,
+        'comment_to_phpdoc' => true,
+        'multiline_comment_opening_closing' => true,
+        'empty_loop_body' => [
+            'style' => 'braces',
+        ],
+        'simplified_if_return' => true,
+        'yoda_style' => [
+            'always_move_variable' => true,
+        ],
+        'doctrine_annotation_indentation' => [
+            'indent_mixed_lines' => true,
+        ],
+        'doctrine_annotation_spaces' => [
+            'before_array_assignments_equals' => false,
+            'after_array_assignments_equals' => false,
+            'before_array_assignments_colon' => false,
+            'after_array_assignments_colon' => false,
+        ],
+        'method_argument_space' => [
+            'on_multiline' => 'ensure_fully_multiline',
+            'after_heredoc' => true,
+        ],
+        'native_function_invocation' => [
+            'include' => [
+                '@compiler_optimized',
+            ],
+            'scope' => 'all',
+            'strict' => true,
+        ],
+        'nullable_type_declaration_for_default_null_value' => true,
+        'regular_callable_call' => true,
+        'static_lambda' => true,
+        'global_namespace_import' => [
+            'import_classes' => true,
+            'import_constants' => true,
+            'import_functions' => true,
+        ],
+        'ordered_imports' => [
+            'imports_order' => [
+                'class',
+                'const',
+                'function',
+            ],
+            'sort_algorithm' => 'alpha',
+        ],
+        'combine_consecutive_issets' => true,
+        'combine_consecutive_unsets' => true,
+        'declare_parentheses' => true,
+        'explicit_indirect_variable' => true,
+        'concat_space' => [
+            'spacing' => 'one',
+        ],
+        'operator_linebreak' => true,
+        'php_unit_dedicate_assert' => [
+            'target' => 'newest',
+        ],
+        'php_unit_dedicate_assert_internal_type' => [
+            'target' => 'newest',
+        ],
+        'php_unit_expectation' => [
+            'target' => 'newest',
+        ],
+        'php_unit_mock' => [
+            'target' => 'newest',
+        ],
+        'php_unit_namespaced' => [
+            'target' => 'newest',
+        ],
+        'php_unit_no_expectation_annotation' => [
+            'target' => 'newest',
+        ],
+        'php_unit_strict' => true,
+        'php_unit_test_case_static_method_calls' => [
+            'call_type' => 'this'
+        ],
+        'align_multiline_comment' => true,
+        'general_phpdoc_annotation_remove' => [
+            'annotations' => [
+                'author',
+                'package',
+                'subpackage',
+            ],
+        ],
+        'no_superfluous_phpdoc_tags' => [
+            'allow_mixed' => true,
+        ],
+        'phpdoc_add_missing_param_annotation' => true,
+        'phpdoc_align' => [
+            'tags' => [
+                'param',
+                'property',
+                'property-read',
+                'property-write',
+                'return',
+                'throws',
+                'type',
+                'var',
+                'method',
+            ],
+        ],
+        'phpdoc_line_span' => true,
+        'phpdoc_no_empty_return' => true,
+        'phpdoc_order' => true,
+        'phpdoc_var_annotation_correct_order' => true,
+        'no_useless_return' => true,
+        'simplified_null_return' => false,
+        'multiline_whitespace_before_semicolons' => true,
+        'strict_comparison' => true,
+        'strict_param' => true,
+        'explicit_string_variable' => true,
+        'simple_to_complex_string_variable' => true,
+        'array_indentation' => true,
+        'blank_line_before_statement' => [
+            'statements' => [
+                'break',
+                'continue',
+                'declare',
+                'do',
+                'exit',
+                'for',
+                'foreach',
+                'goto',
+                'if',
+                'include',
+                'include_once',
+                'require',
+                'require_once',
+                'return',
+                'switch',
+                'throw',
+                'try',
+                'while',
+                'yield',
+                'yield_from',
+            ],
+        ],
+        'heredoc_indentation' => false,
+        'method_chaining_indentation' => true,
+        'no_extra_blank_lines' => [
+            'tokens' => [
+                'break',
+                'case',
+                'continue',
+                'curly_brace_block',
+                'default',
+                'extra',
+                'parenthesis_brace_block',
+                'return',
+                'square_brace_block',
+                'switch',
+                'throw',
+                'use',
+            ],
+        ],
+        'no_useless_else' => true,
+        'declare_strict_types' => true,
+    ]);
