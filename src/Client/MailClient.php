@@ -24,7 +24,7 @@ class MailClient implements MailSenderInterface
         string $text
     ): void {
         $email = (new Email())
-            ->from('timmi129@xm-test.com')
+            ->from('timurvasilev@gmail.com')
             ->to($to)
             ->subject($subject)
             ->text($text);
