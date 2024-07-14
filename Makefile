@@ -6,6 +6,8 @@ reset: cache_remove postgres_reset post_init
 
 postgres_reset: postgres_drop postgres_create postgres_migrate
 
+start: start-containers composer migrate fixtures
+
 postgres_drop:
 	make exec service="api" command="bin/console doctrine:database:drop --force --if-exists"
 
@@ -13,7 +15,7 @@ db-drop:
 	make exec service="api" command="bin/console doctrine:schema:drop --full-database --force"
 
 fixtures:
-	make exec service="api" command="bin/console doctrine:fixtures:load --purge-exclusions=groups"
+	make exec service="api" command="bin/console doctrine:fixtures:load --no-interaction"
 
 create:
 	make exec service="api" command="bin/console doctrine:database:create --if-not-exists"
@@ -24,6 +26,11 @@ migrate:
 migrate-diff:
 	make exec service="api" command="bin/console doctrine:migrations:diff"
 
+test-unit:
+	make exec service="api" command="./vendor/phpunit/phpunit/phpunit  --testsuite 'Unit Test Suite'"
+
+composer:
+	make exec service="api" command="composer install"
 
 reset-db: db-drop migrate fixtures
 

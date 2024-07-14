@@ -1,10 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello!!!</title>
-</head>
-<body>
+<html>
 
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+<h1 class="text-center text-success">
+    Welcome to XM!
+</h1>
+<p class="text-center">
+    Send email
+</p>
+
+<div class="container" id="send-email-form" style="margin-bottom: 50px;">
+    <div class="col-lg-8 m-auto d-block">
+        <form>
+            <div class="form-group">
+                <label>
+                    Company symbol:
+                </label>
+                <input type="text"
+                       name="company-symbol"
+                       id="company-symbol"
+                       class="form-control"
+                       style="text-transform:uppercase" >
+                <small id="company-symbol-check" class="form-text text-muted invalid-feedback">
+                    Company symbol is missing
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Email:
+                </label>
+                <input type="email"
+                       name="email"
+                       id="email" required
+                       class="form-control">
+                <small id="email-valid"
+                       class="form-text text-muted invalid-feedback">
+                    Your email must be a valid email
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    Date from:
+                </label>
+                <input  id="date-from" type="text" class="form-control">
+                <small id="date-from-valid"
+                       class="form-text text-muted invalid-feedback">
+                    Date from is missing
+                </small>
+            </div>
+
+             <div class="form-group">
+                <label>
+                    Date to:
+                </label>
+                <input  id="date-to" type="text" class="form-control">
+                 <small id="date-to-valid"
+                        class="form-text text-muted invalid-feedback">
+                     Date to is missing
+                 </small>
+            </div>
+
+            <button type='button'
+                   id="submitbtn"
+                   value="Submit"
+                   class="btn btn-primary">
+                Submit
+                </button>
+        </form>
+    </div>
+</div>
+<div class="container"  id="accordion-chart">
+    <div class="col-lg-12 m-auto d-block">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Prices history
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <div  id="prices-table">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Prices chart
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <div >
+                        <canvas  id="prices-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="app.js"></script>
 </body>
+
 </html>

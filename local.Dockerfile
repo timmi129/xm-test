@@ -59,6 +59,7 @@ COPY migrations                 ./migrations
 COPY tests                      ./tests
 COPY .php-cs-fixer.dist.php     ./.php-cs-fixer.dist.php
 COPY config/php/php_loc.ini     ./php_loc.ini
+COPY phpunit.xml.dist     ./phpunit.xml.dist
 
 RUN cp php_loc.ini $PHP_INI_DIR/conf.d/php.override.ini
 

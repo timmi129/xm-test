@@ -51,14 +51,16 @@ services:
         aliases:
           - postgres
 
-#  rabbitmq:
-#    container_name: xm-rabbitmq
-#    image: rabbitmq:3.8.1-management
-#    environment:
-#      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
-#      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
-#    restart: always
-
+  redis:
+    container_name: xm-redis
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=1
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
 
 volumes:
   api_cache:

@@ -1,9 +1,5 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-# Put parameters here that don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    redis.dsn: '%env(REDIS_DSN)%'
 
 services:
     # default configuration for services in *this* file
@@ -36,5 +32,15 @@ services:
         arguments:
             $denormalizer: '@default.serializer'
 
-    app.authenticator:
-        class: App\Security\JWTAuthenticator
+
+    App\Client\RapidapiClient:
+        arguments:
+            $host: '%env(RAPID_HOST)%'
+            $key: '%env(RAPID_KEY)%'
+            $denormalizer: '@default.serializer'
+
+    App\Repository\HistoryRepositoryInterface:
+        class: App\Repository\Cache\HistoryCacheRepository
+        arguments:
+            $cache: '@cache_pool'
+            $decorates: '@App\Client\RapidapiClient'

@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace App\Serializer;
 
-use App\Serializer\Normalizer\FloatVONormalizer;
-use App\Serializer\Normalizer\IntVONormalizer;
-use App\Serializer\Normalizer\StringVONormalizer;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Gamez\Symfony\Component\Serializer\Normalizer\UuidNormalizer;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
@@ -45,9 +42,6 @@ class SerializerFactory
 
         return new Serializer([
             new DateTimeNormalizer(),
-            new IntVONormalizer(),
-            new StringVONormalizer(),
-            new FloatVONormalizer(),
             new UuidNormalizer(),
             new BackedEnumNormalizer(),
             new ObjectNormalizer(
